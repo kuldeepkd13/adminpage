@@ -1,5 +1,5 @@
 
-  const apiUrl = "https://jsonserverproject.onrender.com/admin";
+  const apiUrl = "https://jsonservereliteleaseproject.onrender.com/admin";
 
   const loginForm = document.querySelector("form");
   const loginButton = document.querySelector("#button");
@@ -20,6 +20,8 @@ loginForm.addEventListener("submit", (event) => {
       .then((data) => {
         console.log(data)
         const user = data.find((user) => {
+          const userData = { email, username, password };
+        localStorage.setItem("userCredentials", JSON.stringify(userData));
           return user.email === email && user.username === username && user.password === password;
         });
 
